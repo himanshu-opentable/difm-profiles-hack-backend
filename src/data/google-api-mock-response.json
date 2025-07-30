@@ -1,0 +1,449 @@
+{
+    "id": "ChIJjV68GjzR5zsRu3LYDz5vMDU",
+    "types": [
+        "seafood_restaurant",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+    ],
+    "internationalPhoneNumber": "+91 92062 60260",
+    "formattedAddress": "Sai Baba Mandir Marg, next to Commerce House, opp. Kalaghoda Cafe, Kala Ghoda, Fort, Mumbai, Maharashtra 400001, India",
+    "regularOpeningHours": {
+        "openNow": true,
+        "periods": [
+            {
+                "open": {
+                    "day": 0,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 0,
+                    "hour": 15,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 0,
+                    "hour": 18,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 1,
+                    "hour": 0,
+                    "minute": 0
+                }
+            },
+            {
+                "open": {
+                    "day": 1,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 1,
+                    "hour": 15,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 1,
+                    "hour": 18,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 2,
+                    "hour": 0,
+                    "minute": 0
+                }
+            },
+            {
+                "open": {
+                    "day": 2,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 2,
+                    "hour": 15,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 2,
+                    "hour": 18,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 3,
+                    "hour": 0,
+                    "minute": 0
+                }
+            },
+            {
+                "open": {
+                    "day": 3,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 3,
+                    "hour": 15,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 3,
+                    "hour": 18,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 4,
+                    "hour": 0,
+                    "minute": 0
+                }
+            },
+            {
+                "open": {
+                    "day": 4,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 4,
+                    "hour": 15,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 4,
+                    "hour": 18,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 5,
+                    "hour": 0,
+                    "minute": 0
+                }
+            },
+            {
+                "open": {
+                    "day": 5,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 5,
+                    "hour": 15,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 5,
+                    "hour": 18,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 6,
+                    "hour": 0,
+                    "minute": 0
+                }
+            },
+            {
+                "open": {
+                    "day": 6,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 6,
+                    "hour": 15,
+                    "minute": 30
+                }
+            },
+            {
+                "open": {
+                    "day": 6,
+                    "hour": 18,
+                    "minute": 0
+                },
+                "close": {
+                    "day": 0,
+                    "hour": 0,
+                    "minute": 0
+                }
+            }
+        ],
+        "weekdayDescriptions": [
+            "Monday: 12:00 – 3:30 PM, 6:00 PM – 12:00 AM",
+            "Tuesday: 12:00 – 3:30 PM, 6:00 PM – 12:00 AM",
+            "Wednesday: 12:00 – 3:30 PM, 6:00 PM – 12:00 AM",
+            "Thursday: 12:00 – 3:30 PM, 6:00 PM – 12:00 AM",
+            "Friday: 12:00 – 3:30 PM, 6:00 PM – 12:00 AM",
+            "Saturday: 12:00 – 3:30 PM, 6:00 PM – 12:00 AM",
+            "Sunday: 12:00 – 3:30 PM, 6:00 PM – 12:00 AM"
+        ],
+        "nextCloseTime": "2025-07-30T10:00:00Z"
+    },
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "displayName": {
+        "text": "Trishna",
+        "languageCode": "en"
+    },
+    "reviews": [
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/reviews/ChdDSUhNMG9nS0VLcWMyYzZMd3BUZWhnRRAB",
+            "relativePublishTimeDescription": "a month ago",
+            "rating": 5,
+            "text": {
+                "text": "Hands down to one of the best food we had in Mumbai.\nSeafood quality is superb.\nWe are not a fan of garlic bitter seafood but this place really changes our mind.\nCrab soup taste fantastic as well",
+                "languageCode": "en"
+            },
+            "originalText": {
+                "text": "Hands down to one of the best food we had in Mumbai.\nSeafood quality is superb.\nWe are not a fan of garlic bitter seafood but this place really changes our mind.\nCrab soup taste fantastic as well",
+                "languageCode": "en"
+            },
+            "authorAttribution": {
+                "displayName": "Puttipong Ruanjaratsri",
+                "uri": "https://www.google.com/maps/contrib/110052886871970926465/reviews",
+                "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocKyt4U3NQm1iJ_CG9Cyga0c45Jf6GksDFfF9TMNXswQ1A_81g=s128-c0x00000000-cc-rp-mo-ba4"
+            },
+            "publishTime": "2025-06-04T18:27:54.390853Z",
+            "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChdDSUhNMG9nS0VLcWMyYzZMd3BUZWhnRRAB&d=17924085&t=1",
+            "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VLcWMyYzZMd3BUZWhnRRAB!2m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/reviews/Ci9DQUlRQUNvZENodHljRjlvT2s1ck9WOVZUWGt5WlZaRVVGTTFSVkF5UlZOS1ozYxAB",
+            "relativePublishTimeDescription": "a month ago",
+            "rating": 5,
+            "text": {
+                "text": "Amazing experience. The food is no doubt outstanding with a lot of variety of dishes. Keys items prawn in crab meat sauce, lollipops, bombil fry, muttron trishna spl, mutton keema, surmai fry, and the gulab jamun.\n\nBig callout to all the staff at trishna they are super helpful with seating and accommodating most requests. They also help out a lot with recommendations.",
+                "languageCode": "en"
+            },
+            "originalText": {
+                "text": "Amazing experience. The food is no doubt outstanding with a lot of variety of dishes. Keys items prawn in crab meat sauce, lollipops, bombil fry, muttron trishna spl, mutton keema, surmai fry, and the gulab jamun.\n\nBig callout to all the staff at trishna they are super helpful with seating and accommodating most requests. They also help out a lot with recommendations.",
+                "languageCode": "en"
+            },
+            "authorAttribution": {
+                "displayName": "Dharshan Dayanand",
+                "uri": "https://www.google.com/maps/contrib/116620942167255746208/reviews",
+                "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjWjv6NQUMGiooA4x0qduFsBkPopKL9LN2KYLRHtyjyIk_o-QNjkpg=s128-c0x00000000-cc-rp-mo-ba4"
+            },
+            "publishTime": "2025-06-14T03:06:49.574750420Z",
+            "flagContentUri": "https://www.google.com/local/review/rap/report?postId=Ci9DQUlRQUNvZENodHljRjlvT2s1ck9WOVZUWGt5WlZaRVVGTTFSVkF5UlZOS1ozYxAB&d=17924085&t=1",
+            "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2s1ck9WOVZUWGt5WlZaRVVGTTFSVkF5UlZOS1ozYxAB!2m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/reviews/Ci9DQUlRQUNvZENodHljRjlvT2kxTFRUaEhZWHBDWTBoUGRWVjNXVTlsWVd0cGRIYxAB",
+            "relativePublishTimeDescription": "a month ago",
+            "rating": 5,
+            "text": {
+                "text": "Trishna Seafood Restaurant is an absolute gem! Every ingredient was top-notch, and the quality shines through in every dish. Must-try's include the crabs, especially the Butter Garlic Crabs - and surprisingly, even the smallest size is generous enough for two people. The portions are spot on, justifying the prices perfectly.\n\nThe Ravas Tikka was perfection, and the Pomfret in Green Curry with Appam was truly awesome, with huge, fresh fish pieces. The ambience and hospitality are top-class, with attentive waiters who take great care of you.\n\nA must-visit destination, at least once in a lifetime! Note that there's paid parking available about 100 meters away. I'm already planning my next visit to try their Chettinad Crab - can't wait! 5/5 stars!",
+                "languageCode": "en"
+            },
+            "originalText": {
+                "text": "Trishna Seafood Restaurant is an absolute gem! Every ingredient was top-notch, and the quality shines through in every dish. Must-try's include the crabs, especially the Butter Garlic Crabs - and surprisingly, even the smallest size is generous enough for two people. The portions are spot on, justifying the prices perfectly.\n\nThe Ravas Tikka was perfection, and the Pomfret in Green Curry with Appam was truly awesome, with huge, fresh fish pieces. The ambience and hospitality are top-class, with attentive waiters who take great care of you.\n\nA must-visit destination, at least once in a lifetime! Note that there's paid parking available about 100 meters away. I'm already planning my next visit to try their Chettinad Crab - can't wait! 5/5 stars!",
+                "languageCode": "en"
+            },
+            "authorAttribution": {
+                "displayName": "Aditi Datta",
+                "uri": "https://www.google.com/maps/contrib/116227507580589145839/reviews",
+                "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjV0dWEx-5G4dirHFzFw6wivis6m0uEhEcH0v4hdSjs-cBd9IYfYzw=s128-c0x00000000-cc-rp-mo-ba6"
+            },
+            "publishTime": "2025-06-26T02:54:27.605636814Z",
+            "flagContentUri": "https://www.google.com/local/review/rap/report?postId=Ci9DQUlRQUNvZENodHljRjlvT2kxTFRUaEhZWHBDWTBoUGRWVjNXVTlsWVd0cGRIYxAB&d=17924085&t=1",
+            "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2kxTFRUaEhZWHBDWTBoUGRWVjNXVTlsWVd0cGRIYxAB!2m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/reviews/ChdDSUhNMG9nS0VJQ0FnTUR3cmM3b3JBRRAB",
+            "relativePublishTimeDescription": "4 months ago",
+            "rating": 4,
+            "text": {
+                "text": "This place is well-known for seafood, and the food was very tasty, if a little on the expensive side. They are pitching for a fine dining experience so the atmosphere is more professional than homely. Lots of white walls and linens and fish tanks.\n\nKing prawns koliwada, the Bombil fry and tandoori broccoli all great.\n\nOverall worth a visit if you have a high budget and are looking for something refined.",
+                "languageCode": "en"
+            },
+            "originalText": {
+                "text": "This place is well-known for seafood, and the food was very tasty, if a little on the expensive side. They are pitching for a fine dining experience so the atmosphere is more professional than homely. Lots of white walls and linens and fish tanks.\n\nKing prawns koliwada, the Bombil fry and tandoori broccoli all great.\n\nOverall worth a visit if you have a high budget and are looking for something refined.",
+                "languageCode": "en"
+            },
+            "authorAttribution": {
+                "displayName": "Rash Cookin",
+                "uri": "https://www.google.com/maps/contrib/107477434062406059032/reviews",
+                "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjVfeRoegIeXjOx5ujkM1I3DOGlKuCOh9DRP6KQJu5_qJNgmYPA=s128-c0x00000000-cc-rp-mo-ba4"
+            },
+            "publishTime": "2025-03-27T15:04:38.659484Z",
+            "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChdDSUhNMG9nS0VJQ0FnTUR3cmM3b3JBRRAB&d=17924085&t=1",
+            "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VJQ0FnTUR3cmM3b3JBRRAB!2m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/reviews/ChdDSUhNMG9nS0VJQ0FnTUNRMXFPaHhnRRAB",
+            "relativePublishTimeDescription": "4 months ago",
+            "rating": 5,
+            "text": {
+                "text": "The most incredible crab I think I've ever eaten! Would recommend the butter garlic... it was delicious. Staff very attentive and give you everything you need. Will be thinking about this meal for a very long time!",
+                "languageCode": "en"
+            },
+            "originalText": {
+                "text": "The most incredible crab I think I've ever eaten! Would recommend the butter garlic... it was delicious. Staff very attentive and give you everything you need. Will be thinking about this meal for a very long time!",
+                "languageCode": "en"
+            },
+            "authorAttribution": {
+                "displayName": "Sian Elvin",
+                "uri": "https://www.google.com/maps/contrib/118086334556741167632/reviews",
+                "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjWJ1xkmS2t_WhXI4aYQ6n0TtcTJsdSuV0XsV8VFYMgPaOn_hQIU=s128-c0x00000000-cc-rp-mo-ba5"
+            },
+            "publishTime": "2025-03-04T04:31:29.766196Z",
+            "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChdDSUhNMG9nS0VJQ0FnTUNRMXFPaHhnRRAB&d=17924085&t=1",
+            "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VJQ0FnTUNRMXFPaHhnRRAB!2m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        }
+    ],
+    "photos": [
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpesyfSHrPN_tfUYTrb6WkFjPIsFYGLAiIYCBhfrF1t3SZwSMKVV_jqBd8zcaTuZ7KXMJyx1RJmjQomgYcdn41A_RD_CpqIhVSjMg0MPTGN5ERVGFXJG5omoYwq-rXqPEAwaQ02EXJEcZ3jhUjV-kt4S7upkTtkPU8QezDlmPiXH8sxxNCOMgHD0oHRL01FComFXKA567_pbTShiuptoQJg_59d9sYL8seh8P0oi5Ehw7H5u5CaATZybA4aTcgXZB_Qn7w7FgdoTVFswbk5S4_FgWKiUilW8wcwvgEnbdoXd5g",
+            "widthPx": 4800,
+            "heightPx": 3200,
+            "authorAttributions": [
+                {
+                    "displayName": "Trishna",
+                    "uri": "https://maps.google.com/maps/contrib/108100616900793203893",
+                    "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocKgWIWBA7T3-e416UmwUiORoroBZavX2Esr0e-iolkYG5x39g=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipNIQf3rSYP_EXiul8s9LT1E4UqNoO3AfRHGhpFK&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipNIQf3rSYP_EXiul8s9LT1E4UqNoO3AfRHGhpFK!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpcZIfK7bvhs04fpHfHcUgu3gz4NUtApFYB8qU2f8oVCMcblSk8z98jxlRk28z8rm663i4Xi9fiqGTPwCIaprIyfm8rde53oSkCXRlmkFg_Rd6EUZq0vVxCpHu7xJmVgSJ1BrqjFDffrWQRLoYExZwafsKE5QdJVnrn12rYBpJx8cBJtX5OZNjH1iNWUXhYbJPUIMsUd0vS3lf7fBDJvwxv-wGTEh52YKIM0QzEbsBzbMZ5dLEvWmTtcEraAIsbQFCEoT4piAoFRquJVuI7ZgyojkHel3H5Ngez9rmsk7GMqSQ",
+            "widthPx": 1024,
+            "heightPx": 768,
+            "authorAttributions": [
+                {
+                    "displayName": "Trishna",
+                    "uri": "https://maps.google.com/maps/contrib/108100616900793203893",
+                    "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocKgWIWBA7T3-e416UmwUiORoroBZavX2Esr0e-iolkYG5x39g=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipM7n37rz5U9jcdMcdsX-imEPZJKGVR_NBhrVJ3F&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipM7n37rz5U9jcdMcdsX-imEPZJKGVR_NBhrVJ3F!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpfqp05Bcb8d8HbID-UvSb6mHGhPFQh6HXLwEEC8tPPQcoApjyvfWQGhRj5ZKkQQCZ2MGf_DgBl0rCj9WGuE3q-Z4zw5pOQm1PmHEUsfvIRhj0CrxBo0f4rVL8F0IDLDYj55hMuJ2SXa09n2wqpv9Kg1-Nw46W9BcvGfMTUyoRPyxZO7BnndpNVJWljsXdDdd1rOpM-TSC322xMSoaDtsugTVxTcVHc4V9Y3QEGkHxAXGdTIAq425sAO5c3CJm60D0A7HUNrTw0FoO8PeNjW0kbd7U1adX2sSqWh2O8tx0cELCw_L_8SHDYiTLFojNN13DxXW0UhAA7W4T_LMBl_4JSoMOyRaG6ku1bWL8VdxXtBzhUVllpsLkhigi1tRqaTnT6kN_MSoegC-OLaATXcl5tdkyfZkDEKAa3KWSN-5jVoSdH4u62yFniTqKHRCEE2",
+            "widthPx": 4032,
+            "heightPx": 3024,
+            "authorAttributions": [
+                {
+                    "displayName": "Venice Gordon",
+                    "uri": "https://maps.google.com/maps/contrib/107761528717938743352",
+                    "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocKQeIlSp8N3UtJFvsWA789-TUNEXsEhs2qtJ-dQz4dMmPxORA=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIABIhAxsXj4K-0L3R0CkyQL0zYE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIABIhAxsXj4K-0L3R0CkyQL0zYE!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpdrS04-NrsjW_ozduzYcZQbmkqLvswYjC4YCvLwWwNAeIKGeyCWUBNv-DpbbKHrovOItdajE9S22TNVD4pLrj_g5N2EFJMmRLvjC4qxhXncOgkHAamVPkCci3tgr5i6ab1SCFbX-kGRNwMAgD6ugrKgngXO25oSsQQBo0n3yUmGMm9U8illhGBm1ssQ9wZzRwgtiJnG_PSa9iYkkdoxQJqAlbetuhgAJqu_p3Wz6pW2Du4dgEWyLnNJaODB26lMc6XHX_HniwMypdffg9zTOkV8m03tQfYo-0-W4JC6TogdY-9RI9R5xfH5th487V0m4QLc0u05PoymMI3SPNELDgYHWwNb761NJA2aKpibaTzW3FYyIRIRCC1UUGV9ZkrY2cjmfrgNypbsn5mQa3dO0orS1WONobM5i9oEAGzyfN0mARUK",
+            "widthPx": 2008,
+            "heightPx": 1449,
+            "authorAttributions": [
+                {
+                    "displayName": "이재호",
+                    "uri": "https://maps.google.com/maps/contrib/102204926801725226342",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjVRQ8biojFklIr1SulyS5_oCTIaOukarIkuiwmBn51CpOczitp9LQ=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgICn3_ainwE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgICn3_ainwE!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpc6HZJ40BbdbhAY9ImU6vde1qxak2brzurevNfboPuOHtZrcBm-aWNSv_1-alzNPy_koziQy2Iiag31uqF0kkWZRAM1mfZLt7l0gjE6qcuPl5H2ROj_Vs3FXHvkoQduSwYuQIEpzMM7YGDG-cPrp0orvGnSsZpCj4BRCgvDc6H4rpt2zs6KZnoOuUI89s2f3i4aVKRjq1JRnHU_ztPBPJfEt8UhOtBk286tq9NW0mJNjmG8CUCUOEjmZC-w064RURyo_ipa0MkBgpDDYRUndG8oHTGR2eVEBv54umh26hwWipS3RdCrz_QrU36GGL9PP6LzuXDSTS5-Vdy2PsxYP3n_0DNGGiXvN-yBX5LSJ7xtjAhUnS-wFd-DuRlhqNGVUMZNOcd02Un3gi5CnMG2gx0kOBZQDf0oh0LK633pZX0",
+            "widthPx": 3000,
+            "heightPx": 4000,
+            "authorAttributions": [
+                {
+                    "displayName": "SUNGKEUN CHO",
+                    "uri": "https://maps.google.com/maps/contrib/108327763604451392890",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjU-BFY3s__XuAAfQciAvteeJnFd_yzJeBMBPjhRaR2ikMbwDGlQ=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgMCQr53tYw&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgMCQr53tYw!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpf-XHIhG7jMXKWRbaxYoZdo8RkshUthUtwRULcylelIGKtqiwGfHQnEECqR_0WeRL1-D4HKhvEhPZYFvib_pqvejTEW7N2ZrHLBeDLHTDz4dg-8hk-lmUxhmePo2fw5mlbeMUr6kG6cVlJHXCllUkl8MOcvfqTw7RIpWRhm0_0pi2cddIvJpvOY9gBpd3x9A2_ITSbK_oX-GT_CnpiY-Sy_5Jz7l6oPqIQ5mN0DSocVO7VbXljEjBtvOOPN5RQlUz-e40GhjbZ0Q7wmoRwI2mQgoGubNJdOKcuo5kP3k5Sv8rywzuUjmdnYfv6OIpBMpv6rBNcs_mYSd7hUqd6nsrA0evsEKgQewWUwelLe0U7eIduMXE2H3Bwd6ymD8qHz9mFO2MWtXNKQFNpnO8QD1QOMe3LunQtgH7f8B_V_TGvwC6o",
+            "widthPx": 4000,
+            "heightPx": 2252,
+            "authorAttributions": [
+                {
+                    "displayName": "Dakshata Sawant",
+                    "uri": "https://maps.google.com/maps/contrib/109980413728120979133",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXgDKUyVyOXuNRAcNAHS8-zjyXx2l9A2PV2iiZrZ9mGtFE5syB0=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgMDIjvb25wE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgMDIjvb25wE!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpdWcrHlFFxwwkOuFbR--Esf4SbWps3YhqWRoD5UCJ66w9_wajOBHtMKLjSsSReZssRYFFH7MyBDs9Q-h0nl4wt5RW1XAt7-02ap3oWH2-3TTErdLlgD1mvcZpcksx-ALkj9-AYPwWLxS4arQ4drk87SZTt3noJQUzfwlM1WySYcCeFSCblLigadLBANOE8Aco4SJfttCbKzBm0e_Xxk6i2EMyq6gpaPRlvyNwReFrOFkoctDtUDkIP_S04k75b_hIdLjRdJqSpGoQXNSd2LXEEC4F3OZ8RH4Iy1OakBj64q1d-anZdX24oDdLz420ZWTcpnjtKuXuhMyGpGFoiMseY2p9K1iMH33UUIylsp1bIxhNqpxNAQvBe-_uHjxMICZz1t_dBxyYCzPDPjzZNCG-9sfrdawBD4T-inWFZa4lLkgH8u",
+            "widthPx": 4000,
+            "heightPx": 2252,
+            "authorAttributions": [
+                {
+                    "displayName": "Arvydas Papinigis",
+                    "uri": "https://maps.google.com/maps/contrib/107244065624723555529",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjVxHQPw9SeQ5ugCdt-uTeZ5wHP0G8_Tjxo4fOcTnCo1ky__CPXwnw=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgMDQ-qe3pQE&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgMDQ-qe3pQE!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpfH6A_pgP84g6XkJ2wO9jTbFTlnU7NZFq7_w8-nNa-LD_yZklKhTGIRJOW-Ppd6VERAaywlt8hRjYlJuW7GuNJWaRd-hM_f1SLyX3fgi0-lAq81BIkAHTdEJO4QOEMpc7zlG5ZpRZ5y1aEFrRqHcQ3m_dex6J0Z6t1KU_OqoT7yZrdLyzZopNVNJKy0h89dmTY_e8gWO1mL5aFWqQBzxNmxjG_CkwFZhhK3xk7BanqGUxz2azK777UP4O2zX67EzAjAvVy4r0wEyi28fKL1WG6uNeytjO2C_BcmqJpsdR21hGoBlQGdbGP03D4dSWn6G4-DH1ODMH_qBPz2ITnEUK-R4iLcnbj83-djLnk1ajVzD6GwqmwGsnw_C6OcF7HNGW-QU4VGtr2dwZ8s2f5ecReZDn_V2jIoBDZqmTqTCmJW4A",
+            "widthPx": 3024,
+            "heightPx": 4032,
+            "authorAttributions": [
+                {
+                    "displayName": "Roku san",
+                    "uri": "https://maps.google.com/maps/contrib/105208904697029760516",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXo0KLTGM28ksRPEt8P0StZg4X59TtxAX2fONUhYJkSUFRPIBwQJA=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgIDnm__eQA&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIDnm__eQA!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpfj0U1LGIBJJHARO6BR8x0A-bAmDhHX-GjhWBTzN7oAIK6Ib7_j6qoYDMZEETKrvrXrXCv-ZbjODsiP2Z-phsuGkDnQBEL5IKPvKoeTam1ZjCS9tMqnhxG82283pexfLxmAtIJB5XaaIWdFlg8ekcBLxRYk7nofeCQf1oq3y45c0LtpLXkz7yszKF6avqCf-s-wmufsIvpGNSU2UuCNhPDssLmTc59Xc5J0BvTi61o9clcW8uIT296ZjT0sek4xJYJlBJVTr9VqXYZLYsXHJjkmx2DkqbZXUZgXlYpLR5CYb6xFgYVhtOsFQFeqQ5EG_xjPBnqHSsiBjE-O-_AVUdLhlGeEQgunGEpv4rv-qyNcOpzIAZH2xfcnwv50VHPs94gHNUHHOev2U9yiC8o0p6CX_UPMBqrkSComRYcJ-VORzUhZoktM-u8B-HFeFF6h",
+            "widthPx": 3000,
+            "heightPx": 4000,
+            "authorAttributions": [
+                {
+                    "displayName": "Sonal Mishra",
+                    "uri": "https://maps.google.com/maps/contrib/109023106272281071673",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXQv1iO1nDN3kpvylwuTIb9qG_WOFT9qmwXcwqdoHhbFKGgEJJHCg=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIABIhAGbzaqQSdmOmgOLq0ABE2O&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIABIhAGbzaqQSdmOmgOLq0ABE2O!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        },
+        {
+            "name": "places/ChIJjV68GjzR5zsRu3LYDz5vMDU/photos/ATKogpclUUlphxVvd0DTarZn1ho86s4cPbMqtvypgWWraPwBFz29zxh6XUPMlag7lTqthReGfwLwVg6v3vSDCRsv2mKzE7nTSKdFSqucSpODGVsYhSe-wDB32yGgfxhtDWTPz_IW5TUIn7MObNv6ab2fgFX99aaoWFaMZCfzxUugAdakBSWig8nt26t4gsWDNXp-_IlpSrEB7rNuJgp_4y0aVX7RF372Ou0-AtmmR5mQMhv3R9ZUslt6i5AM1Km_pkNkdZZeGNA0MI_DmeY1J9BKVmwZDAt_ULFR77jJ7Yrh9olAU23clD4qhb0XU-bvHwAcz0eAvJTZHS5whObP86Y65PE5KdMl6_L4lbP2y8pqbXJXu6hjeceYEGO_sE_swWMD0Dky1ioLLioWuIOawBkxP3PhqXYw3hN8w_PYIunWePaCaw",
+            "widthPx": 4000,
+            "heightPx": 2252,
+            "authorAttributions": [
+                {
+                    "displayName": "Crotus57 R",
+                    "uri": "https://maps.google.com/maps/contrib/110266000421366931472",
+                    "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjWAmcwVfUm3zV1x55X8r4HZzwSqWkBdmaZNDZlnhvD1hGtLyw9X=s100-p-k-no-mo"
+                }
+            ],
+            "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sCIHM0ogKEICAgIDP06qhNQ&hl=en-US",
+            "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIDP06qhNQ!2e10!4m2!3m1!1s0x3be7d13c1abc5e8d:0x35306f3e0fd872bb"
+        }
+    ]
+}
