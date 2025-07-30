@@ -1,4 +1,6 @@
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
 class GooglePlacesClient {
   constructor() {
@@ -21,7 +23,13 @@ class GooglePlacesClient {
    * @param {string} restaurantName The name of the restaurant to search for.
    * @returns {Object|null} Normalized restaurant data or null if not found.
    */
-  async findPlace(restaurantName) {
+  async findRestaurant(restaurantName) {
+    // Skip API call if profile is 'dev'
+    if (process.env.NODE_ENV === 'dev' || process.env.PROFILE === 'dev') {
+      console.log(`Profile is 'dev', returning mock data for "${restaurantName}"`);
+      return this.getMockData(restaurantName);
+    }
+
     try {
       // 1. Find the Place ID using searchText
       const searchResponse = await this.apiClient.post('/places:searchText', 
@@ -92,6 +100,22 @@ class GooglePlacesClient {
       const photoReference = photo.name; 
       return `https://places.googleapis.com/v1/${photoReference}/media?maxHeightPx=1080&key=${this.apiKey}`;
     });
+  }
+
+  /**
+   * Returns mock data from the JSON file for development purposes.
+   * @param {string} restaurantName The name of the restaurant (for logging purposes).
+   * @returns {Object} Normalized mock restaurant data.
+   */
+  getMockData(restaurantName) {
+    try {
+      const mockDataPath = path.join(__dirname, '..', 'data', 'google-api-mock-response.json');
+      const mockData = JSON.parse(fs.readFileSync(mockDataPath, 'utf8'));
+      return this.normalizeApiResponse(mockData);
+    } catch (error) {
+      console.error('Error loading mock data:', error.message);
+      return null;
+    }
   }
 }
 

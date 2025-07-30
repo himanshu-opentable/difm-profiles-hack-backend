@@ -1,66 +1,90 @@
 const GooglePlacesClient = require('../clients/googlePlacesClient');
+const { determineCuisines, mapPriceLevelToBucket, formatBusinessHours } = require('../utils/utils');
+
+/**
+ * Normalizes the raw Google Places API response into our desired application format.
+ * @param {object} response - The raw restaurant data from Google API or mock file.
+ * @returns {object} The normalized restaurant data.
+ */
+function normalizeGoogleApiResponse(response) {
+  if (!response) return null;
+
+  const { primaryCuisine, additionalCuisines } = determineCuisines(response.types || []);
+  
+  return {
+    id: response.id,
+    basicDetails: {
+      contactNumber: response.internationalPhoneNumber || null,
+      address: response.formattedAddress || null,
+      primaryCuisine: primaryCuisine,
+      additionalCuisines: additionalCuisines,
+      website: response.websiteUri || null, // Updated from undefined
+      typicalCheckAmount: mapPriceLevelToBucket(response.priceLevel) || null,
+    },
+    photos: response.photos || [],
+    description: response.editorialSummary?.text || "A unique description will be generated soon.", // Use Google's summary or a placeholder
+    businessHours: formatBusinessHours(response.regularOpeningHours || []),
+  };
+}
+
 
 class RestaurantService {
   constructor(logger) {
     this.logger = logger;
-    this.googlePlacesClient = new GooglePlacesClient();
+    this.googlePlacesClient = null;
+
+    // Only instantiate the client if we're not in a development environment.
+    if (process.env.NODE_ENV !== 'development') {
+      this.googlePlacesClient = new GooglePlacesClient();
+      this.logger.info('GooglePlacesClient initialized for non-dev environment.');
+    }
   }
 
-  async getRestaurantDetails(restaurantName, location = null) {
+  async getRestaurantDetails(restaurantName) {
     if (!restaurantName || typeof restaurantName !== 'string') {
       this.logger.warn('Invalid restaurant name provided', { restaurantName });
       throw new Error('Restaurant name must be a non-empty string');
     }
 
-    const trimmedName = restaurantName.trim();
-    
-    this.logger.info('Restaurant details requested', { 
-      restaurantName: trimmedName,
-      location: location,
-      timestamp: new Date().toISOString()
-    });
+    let rawRestaurantData;
 
     try {
-      // Fetch real data from Google Places API
-      const restaurantData = await this.googlePlacesClient.findPlaceByName(trimmedName, location);
-      
-      if (!restaurantData) {
-        this.logger.warn('Restaurant not found', { restaurantName: trimmedName });
-        return {
-          success: false,
-          restaurantName: trimmedName,
-          message: 'Restaurant not found',
-          data: null
-        };
+      if (process.env.NODE_ENV === 'development') {
+        // --- Development Mode: Load from mock file ---
+        this.logger.info(`DEV MODE: Loading mock data for "${restaurantName}"`);
+        rawRestaurantData = require('../data/google-api-mock-response.json');
+      } else {
+        // --- Production Mode: Fetch from Google Places API ---
+        this.logger.info(`Fetching real data for "${restaurantName}" from Google Places API.`);
+        rawRestaurantData = await this.googlePlacesClient.findPlace(restaurantName);
       }
 
-      this.logger.info('Restaurant details fetched successfully', { 
-        restaurantName: trimmedName,
-        restaurantId: restaurantData.id 
-      });
+      if (!rawRestaurantData) {
+        this.logger.warn('Restaurant not found', { restaurantName });
+        return { success: false, message: 'Restaurant not found', data: null };
+      }
+      
+      // Normalize the data, regardless of the source
+      const normalizedData = normalizeGoogleApiResponse(rawRestaurantData);
 
-      return {
-        success: true,
-        restaurantName: trimmedName,
-        message: 'Restaurant details fetched successfully',
-        data: restaurantData
-      };
-    } catch (error) {
-      this.logger.error('Error fetching restaurant details', { 
-        error: error.message,
-        restaurantName: trimmedName 
+      this.logger.info('Restaurant details processed successfully', {
+        restaurantName,
+        restaurantId: normalizedData.id
       });
       
-      // Fallback to mock data if API fails
-      this.logger.info('Falling back to mock data');
-      const mockData = require('../data/google-api-mock-response.json');
-      
       return {
         success: true,
-        restaurantName: trimmedName,
-        message: 'Restaurant details fetched from mock data (API unavailable)',
-        data: mockData
+        message: 'Restaurant details fetched successfully',
+        data: normalizedData
       };
+
+    } catch (error) {
+      this.logger.error('Error fetching or processing restaurant details', {
+        error: error.message,
+        restaurantName
+      });
+      // Return a generic error response instead of falling back to mock data
+      return { success: false, message: 'An error occurred while fetching restaurant details.', data: null };
     }
   }
 }
