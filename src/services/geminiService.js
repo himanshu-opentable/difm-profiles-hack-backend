@@ -1,10 +1,17 @@
 // services/geminiService.js
 
-const { GoogleGenAI } = require("@google/genai");
-const promptTemplate = require('../config/prompts.json').generateRestaurantDescription;
+import { GoogleGenAI } from "@google/genai";
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 class GeminiService {
   constructor(logger) {
+    this.promptTemplate = null;
+    this._initializePromptTemplate();
     this.logger = logger;
     if (!process.env.GEMINI_API_KEY) {
       throw new Error('GEMINI_API_KEY environment variable is not set.');
@@ -13,34 +20,56 @@ class GeminiService {
     this.ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY});
   }
 
-  /**
-   * Builds the dynamic prompt from the template and details.
-   * (This helper function remains the same)
-   */
-  _buildPrompt(restaurantData, restaurantName) {
-    // This helper function remains the same
-    let populatedResearchInstruction = promptTemplate.steps[0].instruction
-      .replace('{{name}}', restaurantName)
-      .replace('{{location}}', restaurantData.basicDetails.address);
-      
-    populatedResearchInstruction += " 4. The general atmosphere (e.g., fine-dining, casual, romantic). 5. Its most famous signature dishes.";
-
-    return `
-      ${promptTemplate.task}
-      ${promptTemplate.steps[0].title}: ${populatedResearchInstruction}
-      ${promptTemplate.steps[1].title}: ${promptTemplate.steps[1].instruction}
-      **Provided Core Data:**
-      - Restaurant Name: ${restaurantName}
-      - Primary Cuisine: ${restaurantData.basicDetails.primaryCuisine}
-      - Address: ${restaurantData.basicDetails.address}
-      **Guidelines:**
-      - Hook: ${promptTemplate.steps[1].guidelines.Hook}
-      - Content: ${promptTemplate.steps[1].guidelines.Content}
-      - Tone: ${promptTemplate.steps[1].guidelines.Tone}
-      - Length: ${promptTemplate.steps[1].guidelines.Length}
-      - Output: ${promptTemplate.steps[1].guidelines.Output}
-    `;
+  async _initializePromptTemplate() {
+    const promptsPath = join(__dirname, '..', 'config', 'prompts.json');
+    const promptsData = JSON.parse(readFileSync(promptsPath, 'utf8'));
+    this.promptTemplate = promptsData;
   }
+
+/**
+ * Builds a dynamic, highly detailed prompt for the Gemini API.
+ * @param {object} restaurantData - The normalized data object for the restaurant.
+ * @param {string} restaurantName - The name of the restaurant.
+ * @returns {string} The final, populated prompt string.
+ */
+_buildPrompt(restaurantData, restaurantName) {
+  // Extract the text from the top 3 reviews to provide rich context.
+  const reviewHighlights = restaurantData.reviews
+    .slice(0, 3) // Take the first 3 reviews
+    .map(review => `- "${review.text.text}"`) // Format each review text
+    .join('\n'); // Join them with newlines
+
+  // Make the research instruction more direct.
+  let populatedResearchInstruction = this.promptTemplate.generateRestaurantDescription.steps[0].instruction
+    .replace('{{name}}', restaurantName)
+    .replace('{{location}}', restaurantData.basicDetails.address);
+
+  // Combine all parts into a final, more robust prompt.
+  return `
+    ${this.promptTemplate.generateRestaurantDescription.task}
+
+    ${this.promptTemplate.generateRestaurantDescription.steps[0].title}:
+    ${populatedResearchInstruction}
+    You must use your web search tool to find this information.
+
+    ${this.promptTemplate.generateRestaurantDescription.steps[1].title}:
+    ${this.promptTemplate.generateRestaurantDescription.steps[1].instruction}
+
+    **Provided Core Data:**
+    - Restaurant Name: ${restaurantName}
+    - Primary Cuisine: ${restaurantData.basicDetails.primaryCuisine}
+    - Address: ${restaurantData.basicDetails.address}
+    - Highlights from User Reviews (use these to understand atmosphere and popular dishes):
+    ${reviewHighlights}
+
+    **Guidelines:**
+    - Hook: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Hook}
+    - Content: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Content}
+    - Tone: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Tone}
+    - Length: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Length}
+    - Output: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Output}
+  `;
+}
 
   /**
    * Generates a restaurant description using the exact pattern for the @google/genai library.
@@ -48,6 +77,9 @@ class GeminiService {
    * @param {string} restaurantName - The name of the restaurant.
    */
   async generateRestaurantDescription(restaurantData, restaurantName) {
+    if (!this.promptTemplate) {
+      await this._initializePromptTemplate();
+    }
     const prompt = this._buildPrompt(restaurantData, restaurantName);
     this.logger.info('Sending prompt to Gemini API via @google/genai...');
 
@@ -86,4 +118,4 @@ class GeminiService {
   }
 }
 
-module.exports = GeminiService;
+export default GeminiService;

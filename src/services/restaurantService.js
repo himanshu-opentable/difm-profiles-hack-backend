@@ -1,6 +1,12 @@
-const GooglePlacesClient = require('../clients/googlePlacesClient');
-const { determineCuisines, mapPriceLevelToBucket, formatBusinessHours } = require('../utils/utils');
-const GeminiService = require('./geminiService');
+import GooglePlacesClient from '../clients/googlePlacesClient.js';
+import { determineCuisines, mapPriceLevelToBucket, formatBusinessHours } from '../utils/utils.js';
+import GeminiService from './geminiService.js';
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 /**
  * Normalizes the raw Google Places API response into our desired application format.
  * @param {object} response - The raw restaurant data from Google API or mock file.
@@ -24,6 +30,7 @@ function normalizeGoogleApiResponse(response) {
     photos: response.photos || [],
     description: response.editorialSummary?.text, // Use Google's summary or a placeholder
     businessHours: formatBusinessHours(response.regularOpeningHours || []),
+    reviews: response.reviews || []
   };
 }
 
@@ -53,7 +60,8 @@ class RestaurantService {
       if (process.env.NODE_ENV === 'development') {
         // --- Development Mode: Load from mock file ---
         this.logger.info(`DEV MODE: Loading mock data for "${restaurantName}"`);
-        rawRestaurantData = require('../data/google-api-mock-response.json');
+        const mockDataPath = join(__dirname, '..', 'data', 'google-api-mock-response.json');
+        rawRestaurantData = JSON.parse(readFileSync(mockDataPath, 'utf8'));
       } else {
         // --- Production Mode: Fetch from Google Places API ---
         this.logger.info(`Fetching real data for "${restaurantName}" from Google Places API.`);
@@ -74,10 +82,12 @@ class RestaurantService {
       });
 
 
+      // Exclude the 'reviews' key from normalizedData before returning
+      const { reviews, ...normalizedDataWithoutReviews } = normalizedData;
       return {
         success: true,
         message: 'Restaurant details fetched successfully',
-        data: { normalizedData, description }
+        data: { normalizedData: normalizedDataWithoutReviews, description }
       };
 
     } catch (error) {
@@ -92,4 +102,4 @@ class RestaurantService {
   }
 }
 
-module.exports = RestaurantService;
+export default RestaurantService;

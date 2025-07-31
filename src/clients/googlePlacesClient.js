@@ -1,6 +1,10 @@
-const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
+import axios from 'axios';
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 class GooglePlacesClient {
   constructor() {
@@ -27,7 +31,7 @@ class GooglePlacesClient {
     console.log(`Checking profile: ${process.env.PROFILE}`);
     if (process.env.NODE_ENV === 'dev' || process.env.PROFILE === 'dev') {
       console.log(`Profile is 'dev', returning mock data for "${restaurantName}"`);
-      return this.getMockData(restaurantName);
+      return await this.getMockData(restaurantName);
     }
 
     try {
@@ -107,10 +111,10 @@ class GooglePlacesClient {
    * @param {string} restaurantName The name of the restaurant (for logging purposes).
    * @returns {Object} Normalized mock restaurant data.
    */
-  getMockData(restaurantName) {
+  async getMockData(restaurantName) {
     try {
-      const mockDataPath = path.join(__dirname, '..', 'data', 'google-api-mock-response.json');
-      const mockData = JSON.parse(fs.readFileSync(mockDataPath, 'utf8'));
+      const mockDataPath = join(__dirname, '..', 'data', 'google-api-mock-response.json');
+      const mockData = JSON.parse(readFileSync(mockDataPath, 'utf8'));
       return this.normalizeApiResponse(mockData);
     } catch (error) {
       console.error('Error loading mock data:', error.message);
@@ -119,4 +123,4 @@ class GooglePlacesClient {
   }
 }
 
-module.exports = GooglePlacesClient;
+export default GooglePlacesClient;

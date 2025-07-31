@@ -1,4 +1,4 @@
-const RestaurantService = require('../services/restaurantService');
+import RestaurantService from '../services/restaurantService.js';
 
 async function routes(fastify, options) {
   const restaurantService = new RestaurantService(fastify.log);
@@ -128,4 +128,4 @@ async function routes(fastify, options) {
   });
 }
 
-module.exports = routes;
+export default routes;

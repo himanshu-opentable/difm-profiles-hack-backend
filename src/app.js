@@ -1,6 +1,9 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 console.log('Environment variables loaded:', process.env.NODE_ENV);
-const fastify = require('fastify')({
+import Fastify from 'fastify';
+
+const fastify = Fastify({
   logger: {
     level: 'info',
     transport: {
@@ -14,7 +17,8 @@ const fastify = require('fastify')({
 
 const start = async () => {
   try {
-    await fastify.register(require('./routes'));
+    const routesModule = await import('./routes/index.js');
+    await fastify.register(routesModule.default);
     
     const host = process.env.HOST || '0.0.0.0';
     const port = process.env.PORT || 3000;

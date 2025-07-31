@@ -1,12 +1,24 @@
 // services/openAIService.js
 
-const OpenAI = require('openai');
+import OpenAI from 'openai';
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 // Load all prompts from your configuration file
-const prompts = require('../config/prompts.json');
 
 class OpenAIService {
   constructor() {
     this.openai = new OpenAI();
+    this.prompts = null;
+    this._initializePrompts();
+  }
+
+  async _initializePrompts() {
+    const promptsPath = join(__dirname, '..', 'config', 'prompts.json');
+    this.prompts = JSON.parse(readFileSync(promptsPath, 'utf8'));
   }
 
   /**
@@ -15,8 +27,11 @@ class OpenAIService {
    * @returns {string} The generated description text.
    */
   async generateRestaurantDescription(details) {
+    if (!this.prompts) {
+      await this._initializePrompts();
+    }
     // Get the prompt template from our loaded config
-    const template = prompts.generateRestaurantDescription;
+    const template = this.prompts.generateRestaurantDescription;
     
     // Replace placeholders with actual data
     let populatedPrompt = template.prompt
@@ -49,4 +64,4 @@ class OpenAIService {
   }
 }
 
-module.exports = new OpenAIService();
+export default new OpenAIService();
