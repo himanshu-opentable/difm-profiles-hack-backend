@@ -48,7 +48,7 @@ class RestaurantService {
     }
   }
 
-  async getRestaurantDetails(restaurantName) {
+  async getRestaurantDetails(restaurantName, location) {
     if (!restaurantName || typeof restaurantName !== 'string') {
       this.logger.warn('Invalid restaurant name provided', { restaurantName });
       throw new Error('Restaurant name must be a non-empty string');
@@ -65,7 +65,7 @@ class RestaurantService {
       } else {
         // --- Production Mode: Fetch from Google Places API ---
         this.logger.info(`Fetching real data for "${restaurantName}" from Google Places API.`);
-        rawRestaurantData = await this.googlePlacesClient.findPlace(restaurantName);
+        rawRestaurantData = await this.googlePlacesClient.findRestaurant(`${restaurantName}, ${location}`);
       }
 
       if (!rawRestaurantData) {

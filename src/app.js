@@ -4,15 +4,17 @@ console.log('Environment variables loaded:', process.env.NODE_ENV);
 import Fastify from 'fastify';
 
 const fastify = Fastify({
-  logger: {
-    level: 'info',
-    transport: {
-      target: 'pino-pretty',
-      options: {
-        colorize: true
+  logger: process.env.NODE_ENV === 'production' 
+    ? { level: 'info' } 
+    : {
+        level: 'info',
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            colorize: true
+          }
+        }
       }
-    }
-  }
 });
 
 const start = async () => {
