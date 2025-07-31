@@ -1,20 +1,26 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 console.log('Environment variables loaded:', process.env.NODE_ENV);
-const fastify = require('fastify')({
-  logger: {
-    level: 'info',
-    transport: {
-      target: 'pino-pretty',
-      options: {
-        colorize: true
+import Fastify from 'fastify';
+
+const fastify = Fastify({
+  logger: process.env.NODE_ENV === 'production' 
+    ? { level: 'info' } 
+    : {
+        level: 'info',
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            colorize: true
+          }
+        }
       }
-    }
-  }
 });
 
 const start = async () => {
   try {
-    await fastify.register(require('./routes'));
+    const routesModule = await import('./routes/index.js');
+    await fastify.register(routesModule.default);
     
     const host = process.env.HOST || '0.0.0.0';
     const port = process.env.PORT || 3000;

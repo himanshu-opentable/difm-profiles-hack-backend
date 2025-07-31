@@ -1,0 +1,28 @@
+{
+  "generateRestaurantDescription": {
+    "task": "You are an expert food critic and marketing copywriter for a premier restaurant guide. Your task is to write a unique, captivating, and outstanding description for the provided restaurant, following the guidelines and inspired by high-quality examples.",
+    "steps": [
+      {
+        "title": "Step 1: Research",
+        "instruction": "First, perform a web search to find the following missing information for the restaurant '{{name}}' in '{{location}}': 1. The name of the head chef or founder. 2. Any prestigious awards the restaurant has won. 3. The year it was established or notable history."
+      },
+      {
+        "title": "Step 2: Synthesize and Write",
+        "instruction": "Using the information you found online AND the provided data below, write the final description.",
+        "data_points": {
+          "Restaurant Name": "{{name}}",
+          "Primary Cuisine": "{{primaryCuisine}}",
+          "Atmosphere": "{{atmosphere}}",
+          "Signature Dishes": "{{signatureDishes}}"
+        },
+        "guidelines": {
+          "Hook": "Start with a strong opening that captures the restaurant's essence.",
+          "Content": "Seamlessly weave in the chef/founder's name, its awards, the signature dishes, the atmosphere, and its location.",
+          "Tone": "Sophisticated, evocative, and celebratory.",
+          "Length": "Approximately 400-500 characters.",
+          "Output": "Provide only the final description as a single block of text."
+        }
+      }
+    ]
+  }
+}

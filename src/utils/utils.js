@@ -153,7 +153,7 @@ function formatBusinessHours(openingHours) {
 }
 
 
-module.exports = {
+export {
   determineCuisines,
   mapPriceLevelToBucket,
   formatBusinessHours
