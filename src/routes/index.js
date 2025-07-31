@@ -51,6 +51,54 @@ async function routes(fastify, options) {
     }
   });
 
+  fastify.post('/restaurant', {
+    schema: {
+      body: {
+        type: 'object',
+        required: ['name', 'address'],
+        properties: {
+          name: {
+            type: 'string',
+            minLength: 1
+          },
+          address: {
+            type: 'object',
+            required: ['address1', 'city', 'province', 'postalCode', 'country'],
+            properties: {
+              address1: { type: 'string', minLength: 1 },
+              city: { type: 'string', minLength: 1 },
+              province: { type: 'string', minLength: 1 },
+              postalCode: { type: 'string', minLength: 1 },
+              country: { type: 'string', minLength: 1 }
+            }
+          }
+        }
+      }
+    }
+  }, async (request, reply) => {
+    try {
+      const { name, address } = request.body;
+      // Concatenate address fields into a comma separated string
+      const location = [
+        address.address1,
+        address.city,
+        address.province,
+        address.postalCode,
+        address.country
+      ].filter(Boolean).join(', ');
+
+      const result = await restaurantService.getRestaurantDetails(name, location);
+
+      reply.code(200).send(result);
+    } catch (error) {
+      fastify.log.error('Error getting restaurant details', { error: error.message });
+      reply.code(400).send({
+        success: false,
+        error: error.message
+      });
+    }
+  });
+
   fastify.post('/restaurant/details', {
     schema: {
       body: {

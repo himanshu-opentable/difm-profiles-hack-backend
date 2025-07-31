@@ -5,17 +5,16 @@ const path = require('path');
 class GooglePlacesClient {
   constructor() {
     this.apiKey = process.env.GOOGLE_PLACES_API_KEY;
-    if (!this.apiKey) {
-      throw new Error('GOOGLE_PLACES_API_KEY environment variable is required');
-    }
+    if (this.apiKey) {
+      this.apiClient = axios.create({
+        baseURL: 'https://places.googleapis.com/v1',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Goog-Api-Key': this.apiKey,
+        },
 
-    this.apiClient = axios.create({
-      baseURL: 'https://places.googleapis.com/v1',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Goog-Api-Key': this.apiKey,
-      },
-    });
+      });
+    }
   }
 
   /**
@@ -25,6 +24,7 @@ class GooglePlacesClient {
    */
   async findRestaurant(restaurantName) {
     // Skip API call if profile is 'dev'
+    console.log(`Checking profile: ${process.env.PROFILE}`);
     if (process.env.NODE_ENV === 'dev' || process.env.PROFILE === 'dev') {
       console.log(`Profile is 'dev', returning mock data for "${restaurantName}"`);
       return this.getMockData(restaurantName);
@@ -32,7 +32,7 @@ class GooglePlacesClient {
 
     try {
       // 1. Find the Place ID using searchText
-      const searchResponse = await this.apiClient.post('/places:searchText', 
+      const searchResponse = await this.apiClient.post('/places:searchText',
         { textQuery: restaurantName },
         { headers: { 'X-Goog-FieldMask': 'places.id' } } // Only ask for the ID
       );
@@ -50,7 +50,7 @@ class GooglePlacesClient {
         'id', 'displayName', 'types', 'formattedAddress', 'internationalPhoneNumber',
         'regularOpeningHours', 'priceLevel', 'reviews', 'photos', 'websiteUri', 'editorialSummary'
       ];
-      
+
       const detailsResponse = await this.apiClient.get(
         `/places/${placeId}`,
         { headers: { 'X-Goog-FieldMask': fields.join(',') } }
@@ -97,7 +97,7 @@ class GooglePlacesClient {
   getPhotoUrls(photos) {
     return photos.map(photo => {
       // The 'name' field is the reference needed for the URL
-      const photoReference = photo.name; 
+      const photoReference = photo.name;
       return `https://places.googleapis.com/v1/${photoReference}/media?maxHeightPx=1080&key=${this.apiKey}`;
     });
   }

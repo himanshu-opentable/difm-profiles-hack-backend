@@ -1,3 +1,5 @@
+require('dotenv').config();
+console.log('Environment variables loaded:', process.env.NODE_ENV);
 const fastify = require('fastify')({
   logger: {
     level: 'info',
