@@ -21,7 +21,7 @@ class GeminiService {
   }
 
   async _initializePromptTemplate() {
-    const promptsPath = join(__dirname, '..', 'config', 'prompts.json');
+    const promptsPath = join(__dirname, '..', 'config', 'restaurantDesc.json');
     const promptsData = JSON.parse(readFileSync(promptsPath, 'utf8'));
     this.promptTemplate = promptsData;
   }
@@ -33,42 +33,8 @@ class GeminiService {
  * @returns {string} The final, populated prompt string.
  */
 _buildPrompt(restaurantData, restaurantName) {
-  // Extract the text from the top 3 reviews to provide rich context.
-  const reviewHighlights = restaurantData.reviews
-    .slice(0, 3) // Take the first 3 reviews
-    .map(review => `- "${review.text.text}"`) // Format each review text
-    .join('\n'); // Join them with newlines
-
   // Make the research instruction more direct.
-  let populatedResearchInstruction = this.promptTemplate.generateRestaurantDescription.steps[0].instruction
-    .replace('{{name}}', restaurantName)
-    .replace('{{location}}', restaurantData.basicDetails.address);
-
-  // Combine all parts into a final, more robust prompt.
-  return `
-    ${this.promptTemplate.generateRestaurantDescription.task}
-
-    ${this.promptTemplate.generateRestaurantDescription.steps[0].title}:
-    ${populatedResearchInstruction}
-    You must use your web search tool to find this information.
-
-    ${this.promptTemplate.generateRestaurantDescription.steps[1].title}:
-    ${this.promptTemplate.generateRestaurantDescription.steps[1].instruction}
-
-    **Provided Core Data:**
-    - Restaurant Name: ${restaurantName}
-    - Primary Cuisine: ${restaurantData.basicDetails.primaryCuisine}
-    - Address: ${restaurantData.basicDetails.address}
-    - Highlights from User Reviews (use these to understand atmosphere and popular dishes):
-    ${reviewHighlights}
-
-    **Guidelines:**
-    - Hook: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Hook}
-    - Content: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Content}
-    - Tone: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Tone}
-    - Length: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Length}
-    - Output: ${this.promptTemplate.generateRestaurantDescription.steps[1].guidelines.Output}
-  `;
+  return this.promptTemplate.prompt.replace('{{website}}', restaurantData.basicDetails.website || restaurantName)
 }
 
   /**

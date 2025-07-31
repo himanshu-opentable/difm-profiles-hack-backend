@@ -63,7 +63,6 @@ async function routes(fastify, options) {
           },
           address: {
             type: 'object',
-            required: ['address1', 'city', 'province', 'postalCode', 'country'],
             properties: {
               address1: { type: 'string', minLength: 1 },
               city: { type: 'string', minLength: 1 },
@@ -71,13 +70,18 @@ async function routes(fastify, options) {
               postalCode: { type: 'string', minLength: 1 },
               country: { type: 'string', minLength: 1 }
             }
+          },
+          website: {
+            type: 'string',
+            format: 'uri',
+            minLength: 1
           }
         }
       }
     }
   }, async (request, reply) => {
     try {
-      const { name, address } = request.body;
+      const { name, address, website } = request.body;
       // Concatenate address fields into a comma separated string
       const location = [
         address.address1,
@@ -87,7 +91,7 @@ async function routes(fastify, options) {
         address.country
       ].filter(Boolean).join(', ');
 
-      const result = await restaurantService.getRestaurantDetails(name, location);
+      const result = await restaurantService.getRestaurantDetails(name, location, website);
 
       reply.code(200).send(result);
     } catch (error) {

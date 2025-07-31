@@ -4,6 +4,8 @@ import GeminiService from './geminiService.js';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import CrawlerService from './crawlerService.js';
+import ImageService from './imageService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -40,6 +42,8 @@ class RestaurantService {
     this.logger = logger;
     this.googlePlacesClient = null;
     this.geminiService = new GeminiService(logger);
+    this.crawlerService = new CrawlerService(logger);
+    this.imageService = new ImageService(logger);
 
     // Only instantiate the client if we're not in a development environment.
     if (process.env.NODE_ENV !== 'development') {
@@ -48,7 +52,7 @@ class RestaurantService {
     }
   }
 
-  async getRestaurantDetails(restaurantName, location) {
+  async getRestaurantDetails(restaurantName, location, website) {
     if (!restaurantName || typeof restaurantName !== 'string') {
       this.logger.warn('Invalid restaurant name provided', { restaurantName });
       throw new Error('Restaurant name must be a non-empty string');
@@ -75,7 +79,17 @@ class RestaurantService {
 
       // Normalize the data, regardless of the source
       const normalizedData = normalizeGoogleApiResponse(rawRestaurantData);
-      const description = await this.geminiService.generateRestaurantDescription(normalizedData, restaurantName);
+      // Combine scraping and ranking images into a single function
+      async function getScrapedAndRankedPhotos(website) {
+        const scrapedImgUrls = await this.crawlerService.scrapeImageUrls(website);
+        return await this.imageService.getRankedPhotos(scrapedImgUrls);
+      }
+
+      // Run getScrapedAndRankedPhotos and generateRestaurantDescription in parallel
+      const [scrapedPhotos, description] = await Promise.all([
+        getScrapedAndRankedPhotos.call(this, website),
+        this.geminiService.generateRestaurantDescription(normalizedData, restaurantName)
+      ]);
       this.logger.info('Restaurant details processed successfully', {
         restaurantName,
         restaurantId: normalizedData.id
@@ -83,11 +97,11 @@ class RestaurantService {
 
 
       // Exclude the 'reviews' key from normalizedData before returning
-      const { reviews, ...normalizedDataWithoutReviews } = normalizedData;
+      const { reviews, photos, ...normalizedDataWithoutReviews } = normalizedData;
       return {
         success: true,
         message: 'Restaurant details fetched successfully',
-        data: { normalizedData: normalizedDataWithoutReviews, description }
+        data: { ...normalizedDataWithoutReviews, description, photos: scrapedPhotos }
       };
 
     } catch (error) {

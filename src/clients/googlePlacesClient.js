@@ -78,16 +78,7 @@ class GooglePlacesClient {
     if (!placeData) return null;
 
     return {
-      id: placeData.id,
-      name: placeData.displayName?.text,
-      types: placeData.types || [],
-      address: placeData.formattedAddress,
-      phoneNumber: placeData.internationalPhoneNumber,
-      website: placeData.websiteUri,
-      priceLevel: placeData.priceLevel, // e.g., 'PRICE_LEVEL_MODERATE'
-      openingHours: placeData.regularOpeningHours,
-      summary: placeData.editorialSummary?.text,
-      // Take top 5 reviews and top 5 photos, as discussed
+      ...placeData,
       reviews: (placeData.reviews || []).slice(0, 5),
       photos: this.getPhotoUrls((placeData.photos || []).slice(0, 5)),
     };
