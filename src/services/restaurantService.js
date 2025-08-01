@@ -86,7 +86,7 @@ class RestaurantService {
       }
 
       // Run getScrapedAndRankedPhotos and generateRestaurantDescription in parallel
-      const [scrapedPhotos, description] = await Promise.all([
+      const [scrapedPhotos, parsedData] = await Promise.all([
         getScrapedAndRankedPhotos.call(this, website),
         this.geminiService.generateRestaurantDescription(normalizedData, restaurantName)
       ]);
@@ -98,10 +98,20 @@ class RestaurantService {
 
       // Exclude the 'reviews' key from normalizedData before returning
       const { reviews, photos, ...normalizedDataWithoutReviews } = normalizedData;
+      // Override basicDetails.primaryCuisine if it's empty or not found
+      
+        normalizedDataWithoutReviews.basicDetails.primaryCuisine = parsedData.primaryCuisine;
+      // Always override basicDetails.additionalCuisines
+      normalizedDataWithoutReviews.basicDetails.additionalCuisines = parsedData.additionalCuisines;
+
       return {
         success: true,
         message: 'Restaurant details fetched successfully',
-        data: { ...normalizedDataWithoutReviews, description, photos: scrapedPhotos }
+        data: {
+          ...normalizedDataWithoutReviews,
+          description: parsedData.description,
+          photos: scrapedPhotos
+        }
       };
 
     } catch (error) {

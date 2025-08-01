@@ -1,5 +1,5 @@
 # Use official Node.js runtime as base image
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -29,6 +29,7 @@ ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=8080
 ENV GEMINI_API_KEY=AIzaSyDmTPmH_xf60dsbmdHmCgvNXgbNrPezCb4
+ENV GOOGLE_PLACES_API_KEY=AIzaSyCuplekW7tDqWvMSQHGuQSxORUteifV47o
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
